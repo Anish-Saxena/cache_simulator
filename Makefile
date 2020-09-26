@@ -6,10 +6,10 @@ ODIR=./obj
 LIBS=-lm -lpthread
 SRC = ./src
 
-_DEPS = functional_cache.h cache_hierarchy.h knobs.h
+_DEPS = functional_cache.h cache_hierarchy.h knobs.h miss_categorisation.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = functional_cache.o cache_hierarchy.o driver.o
+_OBJ = functional_cache.o cache_hierarchy.o driver.o miss_categorisation.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SRC)/%.cpp $(DEPS)
