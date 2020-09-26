@@ -1,0 +1,74 @@
+Trace: h264ref.log_l1misstrace parts: 1
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      2348573
+Hits:                         1378895
+Misses:                       969678
+Fills:                        969678
+Evictions:                    955767
+Invalidations:                961486
+              L3 Stats
+Lookups:                      969678
+Hits:                         627532
+Misses:                       342146
+Fills:                        342146
+Evictions:                    309378
+Invalidations:                309378
+         Cache Hierarchy Stats
+Simulated addresses:          2348573
+Cache hits:                   2006427
+Back-invalidation lookups:    309378
+Back-invalidations:           5719
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+LRU:
+Cold Misses: 63703
+Capacity Misses: 51715
+Conflict Misses: 226728
+Belady:
+Cold Misses: 63703
+Capacity Misses: 30935
+Conflict Misses: 247508
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      2348573
+Hits:                         1382949
+Misses:                       965624
+Fills:                        965624
+Evictions:                    957432
+Invalidations:                957432
+              L3 Stats
+Lookups:                      965624
+Hits:                         821943
+Misses:                       143681
+Fills:                        957432
+Evictions:                    106041
+Invalidations:                927984
+         Cache Hierarchy Stats
+Simulated addresses:          2348573
+Cache hits:                   2204892
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      2348573
+Hits:                         1382949
+Misses:                       965624
+Fills:                        965624
+Evictions:                    957432
+Invalidations:                957432
+              L3 Stats
+Lookups:                      965624
+Hits:                         632041
+Misses:                       333583
+Fills:                        333583
+Evictions:                    300815
+Invalidations:                300815
+         Cache Hierarchy Stats
+Simulated addresses:          2348573
+Cache hits:                   2014990
+--------------------------------------------------

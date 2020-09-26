@@ -1,0 +1,74 @@
+Trace: sphinx3.log_l1misstrace parts: 2
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      9835586
+Hits:                         1799356
+Misses:                       8036230
+Fills:                        8036230
+Evictions:                    8010874
+Invalidations:                8028038
+              L3 Stats
+Lookups:                      8036230
+Hits:                         537267
+Misses:                       7498963
+Fills:                        7498963
+Evictions:                    7466195
+Invalidations:                7466195
+         Cache Hierarchy Stats
+Simulated addresses:          9835586
+Cache hits:                   2336623
+Back-invalidation lookups:    7466195
+Back-invalidations:           17164
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+LRU:
+Cold Misses: 120881
+Capacity Misses: 7260537
+Conflict Misses: 117545
+Belady:
+Cold Misses: 120881
+Capacity Misses: 2661970
+Conflict Misses: 4716112
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      9835586
+Hits:                         1804339
+Misses:                       8031247
+Fills:                        8031247
+Evictions:                    8023055
+Invalidations:                8023055
+              L3 Stats
+Lookups:                      8031247
+Hits:                         1350565
+Misses:                       6680682
+Fills:                        8023055
+Evictions:                    6639766
+Invalidations:                7990331
+         Cache Hierarchy Stats
+Simulated addresses:          9835586
+Cache hits:                   3154904
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      9835586
+Hits:                         1804339
+Misses:                       8031247
+Fills:                        8031247
+Evictions:                    8023055
+Invalidations:                8023055
+              L3 Stats
+Lookups:                      8031247
+Hits:                         534436
+Misses:                       7496811
+Fills:                        7496811
+Evictions:                    7464043
+Invalidations:                7464043
+         Cache Hierarchy Stats
+Simulated addresses:          9835586
+Cache hits:                   2338775
+--------------------------------------------------

@@ -219,6 +219,7 @@ void Cache_Hierarchy::Print_Stats(){
     cout << "--------------------------------------------------" << endl;
 
     if(m_incl_policy == INCLUSIVE) {
+        // Print the miss categories
         cacheFullyAssociative.beladyMissCalculation(misses);
         cacheFullyAssociative.printMisses();
     }

@@ -1,0 +1,74 @@
+Trace: bzip2.log_l1misstrace parts: 2
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      9442541
+Hits:                         4833257
+Misses:                       4609284
+Fills:                        4609284
+Evictions:                    4600157
+Invalidations:                4601092
+              L3 Stats
+Lookups:                      4609284
+Hits:                         3354109
+Misses:                       1255175
+Fills:                        1255175
+Evictions:                    1222407
+Invalidations:                1222407
+         Cache Hierarchy Stats
+Simulated addresses:          9442541
+Cache hits:                   8187366
+Back-invalidation lookups:    1222407
+Back-invalidations:           935
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+LRU:
+Cold Misses: 119753
+Capacity Misses: 825781
+Conflict Misses: 309641
+Belady:
+Cold Misses: 119753
+Capacity Misses: 349611
+Conflict Misses: 785811
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      9442541
+Hits:                         4833845
+Misses:                       4608696
+Fills:                        4608696
+Evictions:                    4600504
+Invalidations:                4600504
+              L3 Stats
+Lookups:                      4608696
+Hits:                         3790341
+Misses:                       818355
+Fills:                        4600504
+Evictions:                    780873
+Invalidations:                4571214
+         Cache Hierarchy Stats
+Simulated addresses:          9442541
+Cache hits:                   8624186
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      9442541
+Hits:                         4833845
+Misses:                       4608696
+Fills:                        4608696
+Evictions:                    4600504
+Invalidations:                4600504
+              L3 Stats
+Lookups:                      4608696
+Hits:                         3354061
+Misses:                       1254635
+Fills:                        1254635
+Evictions:                    1221867
+Invalidations:                1221867
+         Cache Hierarchy Stats
+Simulated addresses:          9442541
+Cache hits:                   8187906
+--------------------------------------------------

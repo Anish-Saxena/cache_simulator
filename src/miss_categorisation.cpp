@@ -2,6 +2,8 @@
 
 using namespace std;
 
+/***** The following linked list functions are used to implement lru cache as a linked list with hashed map, insert at front is used to add the most recently used element at the head of list. Remove node is used to remove a node which is accessed just now to insert it at head or to remove the last node in case of eviction. *****/
+
 void insertAtFront(blockNode* &head, int tag)
 {
     blockNode* newNode = new blockNode();
@@ -24,35 +26,19 @@ void removeNode(blockNode* node)
     free(node);
 }
 
-void printList(blockNode* node)
-{
-    blockNode* temp = node;
-    while(temp != NULL)
-    {
-        cout << "temp data is " << temp -> tag << "\n";
-        temp = temp -> next;
-    }
-}
-
 CacheFullyAssociative::CacheFullyAssociative(){
     coldMisses = 0, capacityMisses = 0, misses = 0, count = 0; countBelady = 0; capacityMissesBelady = 0;
     size = pow(2,15);
     head = NULL; tail = NULL;
 }
-// void updateColdMisses(uint64_t addr)
-// {
-//     if(storeColdMisses.find(addr>>6) == storeColdMisses.end())
-//     {
-//         storeColdMisses.insert(addr>>6);
-//         coldMisses++;
-//     }
-// }
+
 void CacheFullyAssociative::updatelruMap(uint64_t addr)
 {
     misses++;
     uint64_t tag = (addr >> 6);
     if(lruMap.find(tag) == lruMap.end())
     {
+        // If the entry doesn't exist in cache and there are empty blocks, insert this entry in hashmap and at the head of linked list
         if(count < size)
         {
             insertAtFront(head, tag);
@@ -60,6 +46,7 @@ void CacheFullyAssociative::updatelruMap(uint64_t addr)
             count++;
             if(count == 1) { tail = head; }
         }
+        // If the entry doesn't exist and cache is full, evict the tail of linked list from hashmap and insert new element at the head.
         else
         {   
             insertAtFront(head, tag);
@@ -70,6 +57,7 @@ void CacheFullyAssociative::updatelruMap(uint64_t addr)
             capacityMisses++;
         }
     }
+    // If the element exists in the cache, remove it from its position and insert it at head position in th linked list
     else
     {   
         if(lruMap[tag] != head)
@@ -84,21 +72,22 @@ void CacheFullyAssociative::updatelruMap(uint64_t addr)
 
 void CacheFullyAssociative::fillBeladyMissVector(uint64_t addr)
 {
+    // Cold misses calculation
+    // Whenever a block comes for the first time, insert it with the time in beladyMissVector hashmap which stores the vector of times when a particular address comes for implementing belady replacement policy
     if(beladyMissVector.find(addr>>6) == beladyMissVector.end())
     {
         beladyMissVector.insert(pair<uint64_t, vector<int>> (addr>>6, {misses}));
         coldMisses++;
-        // beladyMissVector[addr>>6];
-        // beladyMissVector[addr>>6].push_back(misses);
     }
+    // When a block comes again, just push the time in the vector
     else
     {
-        // cout << beladyMissVector.at(addr>>6) << "\n";
         beladyMissVector.at(addr>>6).push_back(misses);
     }
 }
 void CacheFullyAssociative::evictBlock()
 {
+    // in Belady replacement policy, the block in cache which is used the farthest in the future(or not used at all) is evicted
     int max = 0; uint64_t addr;
     for (const auto& address: beladyMap) 
     {
@@ -114,26 +103,23 @@ void CacheFullyAssociative::evictBlock()
             addr = address;
         }
     }
-    // beladyMissVector[addr].erase(beladyMissVector[addr].begin());
     beladyMap.erase(addr);
 }
 
 void CacheFullyAssociative::beladyMissCalculation(vector<uint64_t> &misses)
 {   
-    cout << "Belady miss calculation started\n";
-    int c = 0;
     for (auto& missAddress : misses) 
     {
-        c++;
-        cout << "Processing Miss: " << c << "\n";
         if(beladyMap.find(missAddress >> 6) == beladyMap.end())
-        {
+        {   
+            // If entry is not present in cache and empty blocks are present, insert the element in hashmap and remove the time value from the vector
             if(countBelady < size)
             {
                 beladyMap.insert(missAddress >> 6);
                 beladyMissVector[missAddress >> 6].erase(beladyMissVector[missAddress>>6].begin());
                 countBelady++;
             }
+            // If entry is not present and cache is full, evict a block and insert the element in the cache
             else
             {
                 evictBlock();
@@ -142,6 +128,7 @@ void CacheFullyAssociative::beladyMissCalculation(vector<uint64_t> &misses)
                 capacityMissesBelady++;
             }
         }
+        // If element is present in cache, just remove the time from miss vector
         else
         {
             beladyMissVector[missAddress >> 6].erase(beladyMissVector[missAddress>>6].begin());

@@ -1,0 +1,74 @@
+Trace: gromacs.log_l1misstrace parts: 1
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      3431511
+Hits:                         3094660
+Misses:                       336851
+Fills:                        336851
+Evictions:                    328407
+Invalidations:                328659
+              L3 Stats
+Lookups:                      336851
+Hits:                         166320
+Misses:                       170531
+Fills:                        170531
+Evictions:                    137763
+Invalidations:                137763
+         Cache Hierarchy Stats
+Simulated addresses:          3431511
+Cache hits:                   3260980
+Back-invalidation lookups:    137763
+Back-invalidations:           252
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+LRU:
+Cold Misses: 107962
+Capacity Misses: 130826
+Conflict Misses: -68257
+Belady:
+Cold Misses: 107962
+Capacity Misses: 94897
+Conflict Misses: -32328
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      3431511
+Hits:                         3094787
+Misses:                       336724
+Fills:                        336724
+Evictions:                    328532
+Invalidations:                328532
+              L3 Stats
+Lookups:                      336724
+Hits:                         177422
+Misses:                       159302
+Fills:                        328532
+Evictions:                    118465
+Invalidations:                295887
+         Cache Hierarchy Stats
+Simulated addresses:          3431511
+Cache hits:                   3272209
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      3431511
+Hits:                         3094787
+Misses:                       336724
+Fills:                        336724
+Evictions:                    328532
+Invalidations:                328532
+              L3 Stats
+Lookups:                      336724
+Hits:                         166265
+Misses:                       170459
+Fills:                        170459
+Evictions:                    137691
+Invalidations:                137691
+         Cache Hierarchy Stats
+Simulated addresses:          3431511
+Cache hits:                   3261052
+--------------------------------------------------

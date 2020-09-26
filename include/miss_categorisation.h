@@ -17,7 +17,6 @@ public:
 
 void insertAtFront(blockNode* &head, int tag);
 void removeNode(blockNode* node);
-void printList(blockNode* node);
 
 class CacheFullyAssociative{
 private:    

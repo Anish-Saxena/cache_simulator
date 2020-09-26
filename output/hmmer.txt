@@ -1,0 +1,74 @@
+Trace: hmmer.log_l1misstrace parts: 1
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      3509765
+Hits:                         1766344
+Misses:                       1743421
+Fills:                        1743421
+Evictions:                    1726529
+Invalidations:                1735229
+              L3 Stats
+Lookups:                      1743421
+Hits:                         1352195
+Misses:                       391226
+Fills:                        391226
+Evictions:                    358458
+Invalidations:                358458
+         Cache Hierarchy Stats
+Simulated addresses:          3509765
+Cache hits:                   3118539
+Back-invalidation lookups:    358458
+Back-invalidations:           8700
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+LRU:
+Cold Misses: 75884
+Capacity Misses: 304767
+Conflict Misses: 10575
+Belady:
+Cold Misses: 75884
+Capacity Misses: 116131
+Conflict Misses: 199211
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      3509765
+Hits:                         1774443
+Misses:                       1735322
+Fills:                        1735322
+Evictions:                    1727130
+Invalidations:                1727130
+              L3 Stats
+Lookups:                      1735322
+Hits:                         1435276
+Misses:                       300046
+Fills:                        1727130
+Evictions:                    261701
+Invalidations:                1696977
+         Cache Hierarchy Stats
+Simulated addresses:          3509765
+Cache hits:                   3209719
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      3509765
+Hits:                         1774443
+Misses:                       1735322
+Fills:                        1735322
+Evictions:                    1727130
+Invalidations:                1727130
+              L3 Stats
+Lookups:                      1735322
+Hits:                         1358978
+Misses:                       376344
+Fills:                        376344
+Evictions:                    343576
+Invalidations:                343576
+         Cache Hierarchy Stats
+Simulated addresses:          3509765
+Cache hits:                   3133421
+--------------------------------------------------
