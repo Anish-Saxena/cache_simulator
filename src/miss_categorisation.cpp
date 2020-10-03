@@ -27,8 +27,8 @@ void removeNode(blockNode* node)
 }
 
 CacheFullyAssociative::CacheFullyAssociative(){
-    coldMisses = 0, capacityMisses = 0, misses = 0, count = 0; countBelady = 0; capacityMissesBelady = 0;
-    size = pow(2,15);
+    coldMisses = 0, coldAndCapacityMisses = 0, misses = 0, count = 0; countBelady = 0; coldAndCapacityMissesBelady = 0;
+    size = 1 << 15;
     head = NULL; tail = NULL;
 }
 
@@ -54,8 +54,8 @@ void CacheFullyAssociative::updatelruMap(uint64_t addr)
             lruMap.erase(tail -> tag);
             tail = tail -> prev;
             removeNode(tail -> next);
-            capacityMisses++;
         }
+        coldAndCapacityMisses++;
     }
     // If the element exists in the cache, remove it from its position and insert it at head position in th linked list
     else
@@ -125,8 +125,8 @@ void CacheFullyAssociative::beladyMissCalculation(vector<uint64_t> &misses)
                 evictBlock();
                 beladyMap.insert(missAddress >> 6);
                 beladyMissVector[missAddress >> 6].erase(beladyMissVector[missAddress>>6].begin());
-                capacityMissesBelady++;
             }
+            coldAndCapacityMissesBelady++;
         }
         // If element is present in cache, just remove the time from miss vector
         else
@@ -139,13 +139,15 @@ void CacheFullyAssociative::beladyMissCalculation(vector<uint64_t> &misses)
 void CacheFullyAssociative::printMisses() {
     cout << "############################################" << endl;
     cout << "Miss Categorisation(Part 2)" << endl;
-    cout << "LRU:" << endl;
-    cout << "Cold Misses: " << coldMisses << endl;
-    cout << "Capacity Misses: " << capacityMisses << endl;
-    cout << "Conflict Misses: " << (misses - capacityMisses - coldMisses) << endl;
-    cout << "Belady:" << endl;
-    cout << "Cold Misses: " << coldMisses << endl;
-    cout << "Capacity Misses: " << capacityMissesBelady << endl;
-    cout << "Conflict Misses: " << (misses - capacityMissesBelady - coldMisses) << endl;
+
+    cout << right << setw(30) << "LRU" << endl;
+    cout << left;
+    cout << setw(30) << "Cold Misses: " << coldMisses << endl;    
+    cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMisses-coldMisses) << endl;
+    cout << setw(30) << "Conflict Misses: " << (misses - coldAndCapacityMisses) << endl;
+    cout << setw(30) << "Belady:" << endl;
+    cout << setw(30) << "Cold Misses: " << coldMisses << endl;
+    cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMissesBelady-coldMisses) << endl;
+    cout << setw(30) << "Conflict Misses: " << (misses - coldAndCapacityMissesBelady) << endl;
     cout << "############################################" << endl;
 }

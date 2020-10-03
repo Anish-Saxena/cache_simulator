@@ -1,6 +1,6 @@
 IDIR =./include
 CC=g++
-CFLAGS=-O3 -std=c++11 -w -I$(IDIR)
+CFLAGS=-std=c++11 -w -I$(IDIR)
 
 ODIR=./obj
 LIBS=-lm -lpthread

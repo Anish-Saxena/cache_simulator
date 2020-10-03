@@ -152,7 +152,6 @@ void Cache_Hierarchy::Exclusive_Policy_Simulate(uint64_t addr){
             m_L3->Fill(evicted_addr, L3_vic_way);
         }
     }   
-
     return;
 }
 
@@ -188,7 +187,6 @@ void Cache_Hierarchy::NINE_Policy_Simulate(uint64_t addr){
         m_L2->Invalidate(addr, L2_vic_way);
         m_L2->Fill(addr, L2_vic_way);
     }
-
     return;
 }
 
@@ -219,7 +217,7 @@ void Cache_Hierarchy::Print_Stats(){
     cout << "--------------------------------------------------" << endl;
 
     if(m_incl_policy == INCLUSIVE) {
-        // Print the miss categories
+        // Print the miss categories and call the Belady Miss Calculation function
         cacheFullyAssociative.beladyMissCalculation(misses);
         cacheFullyAssociative.printMisses();
     }

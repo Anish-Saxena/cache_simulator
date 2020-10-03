@@ -21,7 +21,7 @@ void removeNode(blockNode* node);
 class CacheFullyAssociative{
 private:    
     int size;
-    int coldMisses, capacityMisses, capacityMissesBelady, misses;
+    int coldMisses, coldAndCapacityMisses, coldAndCapacityMissesBelady, misses;
     int count; int countBelady;
     blockNode* head; blockNode* tail;
     unordered_set <uint64_t> storeColdMisses;
