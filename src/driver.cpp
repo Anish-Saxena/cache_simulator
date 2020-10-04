@@ -18,7 +18,6 @@ void Usage();
 void MT();
 
 int main(int argc, char *argv[]){
-
     Parse(argc, argv);
 
     if (mt_enabled && num_sims > 1){
@@ -56,6 +55,7 @@ void *Process(void *ptr){
             fread(&type, sizeof(char), 1, fp);
             fread(&addr, sizeof(unsigned long long), 1, fp);
             fread(&pc, sizeof(unsigned), 1, fp);
+            
             if (type){
                 p->Simulate(addr);
             }
@@ -116,17 +116,14 @@ void Parse (int argc, char *argv[]){
     cout << "Trace: " << trace_name << " parts: " << numtraces << endl;
     trace_name.append("_");
     if (sims[0]){
-        num_sims++;
         cout << left << setw(30) << "Inclusive policy: " << "enabled" << endl;
         Simulation[0] = new Cache_Hierarchy(INCLUSIVE);
     }
     if (sims[1]){
-        num_sims++;
         cout << left << setw(30) << "Exclusive policy: " << "enabled" << endl;
         Simulation[1] = new Cache_Hierarchy(EXCLUSIVE);
     }
     if (sims[2]){
-        num_sims++;
         cout << left << setw(30) << "NINE policy: " << "enabled" << endl;
         Simulation[2] = new Cache_Hierarchy(NINE);
     }

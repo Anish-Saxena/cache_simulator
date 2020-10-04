@@ -1,13 +1,16 @@
 #include "cache_hierarchy.h"
+#include "miss_categorisation.h"
 #include "knobs.h"
 
 using namespace std;
+
+CacheFullyAssociative cacheFullyAssociative;
+vector<uint64_t> accesses;
 
 Cache_Hierarchy::Cache_Hierarchy(uint32_t inclusion_policy){
     m_incl_policy = inclusion_policy;
     m_L2 = new Functional_Cache(L2_SETS, L2_WAYS);
     m_L3 = new Functional_Cache(L3_SETS, L3_WAYS);
-
     s_back_inval_lookups = 0;
     s_back_invals = 0;
     s_simulated_addrs = 0;
@@ -48,6 +51,11 @@ void Cache_Hierarchy::Inclusive_Policy_Simulate(uint64_t addr){
         uint32_t L2_vic_way = m_L2->Find_Victim(addr);
         m_L2->Invalidate(addr, L2_vic_way);
         m_L2->Fill(addr, L2_vic_way);
+
+        // Miss classification
+        cacheFullyAssociative.updatelruMap(addr, false);
+        cacheFullyAssociative.fillBeladyAccessVector(addr);
+        accesses.push_back(addr);
     }
     else{
         /*********************************************************
@@ -79,8 +87,12 @@ void Cache_Hierarchy::Inclusive_Policy_Simulate(uint64_t addr){
         uint32_t L2_vic_way = m_L2->Find_Victim(addr);
         m_L2->Invalidate(addr, L2_vic_way);
         m_L2->Fill(addr, L2_vic_way);
-    }
 
+        // Miss classification
+        cacheFullyAssociative.updatelruMap(addr, true);
+        cacheFullyAssociative.fillBeladyAccessVector(addr);
+        accesses.push_back(addr);
+    }
     return;
 }
 
@@ -144,7 +156,6 @@ void Cache_Hierarchy::Exclusive_Policy_Simulate(uint64_t addr){
             m_L3->Fill(evicted_addr, L3_vic_way);
         }
     }   
-
     return;
 }
 
@@ -180,7 +191,6 @@ void Cache_Hierarchy::NINE_Policy_Simulate(uint64_t addr){
         m_L2->Invalidate(addr, L2_vic_way);
         m_L2->Fill(addr, L2_vic_way);
     }
-
     return;
 }
 
@@ -207,6 +217,11 @@ void Cache_Hierarchy::Print_Stats(){
     if (m_incl_policy == INCLUSIVE){
         cout << setw(30) << "Back-invalidation lookups: " << s_back_inval_lookups << endl;
         cout << setw(30) << "Back-invalidations: " << s_back_invals << endl;
+    }
+    if(m_incl_policy == INCLUSIVE) {
+        // Print the miss categories and call the Belady Miss Calculation function
+        cacheFullyAssociative.beladyMissCalculation(accesses);
+        cacheFullyAssociative.printMisses();
     }
     cout << "--------------------------------------------------" << endl;
 }
