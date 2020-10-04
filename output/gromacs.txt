@@ -25,14 +25,14 @@ Back-invalidations:           252
 --------------------------------------------------
 ############################################
 Miss Categorisation(Part 2)
-LRU:
-Cold Misses: 107962
-Capacity Misses: 130826
-Conflict Misses: -68257
-Belady:
-Cold Misses: 107962
-Capacity Misses: 94897
-Conflict Misses: -32328
+                           LRU
+Cold Misses:                  107962
+Capacity Misses:              55632
+Conflict Misses:              6937
+Belady:                       
+Cold Misses:                  107962
+Capacity Misses:              19703
+Conflict Misses:              42866
 ############################################
 Simulation Result for         Exclusive Cache Hierarchy 
               L2 Stats

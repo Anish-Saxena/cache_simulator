@@ -4,71 +4,71 @@ Exclusive policy:             enabled
 NINE policy:                  enabled
 Simulation Result for         Inclusive Cache Hierarchy 
               L2 Stats
-Lookups:                      9582296
-Hits:                         7973960
-Misses:                       1608336
-Fills:                        1608336
-Evictions:                    1595364
-Invalidations:                1600144
+Lookups:                      14610811
+Hits:                         11574350
+Misses:                       3036461
+Fills:                        3036461
+Evictions:                    3018613
+Invalidations:                3028269
               L3 Stats
-Lookups:                      1608336
-Hits:                         1104299
-Misses:                       504037
-Fills:                        504037
-Evictions:                    471269
-Invalidations:                471269
+Lookups:                      3036461
+Hits:                         1663059
+Misses:                       1373402
+Fills:                        1373402
+Evictions:                    1340634
+Invalidations:                1340634
          Cache Hierarchy Stats
-Simulated addresses:          9582296
-Cache hits:                   9078259
-Back-invalidation lookups:    471269
-Back-invalidations:           4780
+Simulated addresses:          14610811
+Cache hits:                   13237409
+Back-invalidation lookups:    1340634
+Back-invalidations:           9656
 --------------------------------------------------
 ############################################
 Miss Categorisation(Part 2)
-LRU:
-Cold Misses: 213544
-Capacity Misses: 409487
-Conflict Misses: -118994
-Belady:
-Cold Misses: 213544
-Capacity Misses: 234055
-Conflict Misses: 56438
+                           LRU
+Cold Misses:                  773053
+Capacity Misses:              500149
+Conflict Misses:              100200
+Belady:                       
+Cold Misses:                  773053
+Capacity Misses:              119506
+Conflict Misses:              480843
 ############################################
 Simulation Result for         Exclusive Cache Hierarchy 
               L2 Stats
-Lookups:                      9582296
-Hits:                         7977207
-Misses:                       1605089
-Fills:                        1605089
-Evictions:                    1596897
-Invalidations:                1596897
+Lookups:                      14610811
+Hits:                         11581002
+Misses:                       3029809
+Fills:                        3029809
+Evictions:                    3021617
+Invalidations:                3021617
               L3 Stats
-Lookups:                      1605089
-Hits:                         1178933
-Misses:                       426156
-Fills:                        1596897
-Evictions:                    386478
-Invalidations:                1565411
+Lookups:                      3029809
+Hits:                         1786985
+Misses:                       1242824
+Fills:                        3021617
+Evictions:                    1202122
+Invalidations:                2989107
          Cache Hierarchy Stats
-Simulated addresses:          9582296
-Cache hits:                   9156140
+Simulated addresses:          14610811
+Cache hits:                   13367987
 --------------------------------------------------
 Simulation Result for         NINE Cache Hierarchy 
               L2 Stats
-Lookups:                      9582296
-Hits:                         7977207
-Misses:                       1605089
-Fills:                        1605089
-Evictions:                    1596897
-Invalidations:                1596897
+Lookups:                      14610811
+Hits:                         11581002
+Misses:                       3029809
+Fills:                        3029809
+Evictions:                    3021617
+Invalidations:                3021617
               L3 Stats
-Lookups:                      1605089
-Hits:                         1105073
-Misses:                       500016
-Fills:                        500016
-Evictions:                    467248
-Invalidations:                467248
+Lookups:                      3029809
+Hits:                         1663561
+Misses:                       1366248
+Fills:                        1366248
+Evictions:                    1333480
+Invalidations:                1333480
          Cache Hierarchy Stats
-Simulated addresses:          9582296
-Cache hits:                   9082280
+Simulated addresses:          14610811
+Cache hits:                   13244563
 --------------------------------------------------

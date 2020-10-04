@@ -140,12 +140,12 @@ void CacheFullyAssociative::printMisses() {
     cout << "############################################" << endl;
     cout << "Miss Categorisation(Part 2)" << endl;
 
-    cout << right << setw(30) << "LRU" << endl;
+    cout << "LRU" << endl;
     cout << left;
     cout << setw(30) << "Cold Misses: " << coldMisses << endl;    
     cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMisses-coldMisses) << endl;
     cout << setw(30) << "Conflict Misses: " << (misses - coldAndCapacityMisses) << endl;
-    cout << setw(30) << "Belady:" << endl;
+    cout << "Belady" << endl;
     cout << setw(30) << "Cold Misses: " << coldMisses << endl;
     cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMissesBelady-coldMisses) << endl;
     cout << setw(30) << "Conflict Misses: " << (misses - coldAndCapacityMissesBelady) << endl;
