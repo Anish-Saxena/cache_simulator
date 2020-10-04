@@ -1,0 +1,74 @@
+Trace: bzip2.log_l1misstrace parts: 2
+Inclusive policy:             enabled
+Exclusive policy:             enabled
+NINE policy:                  enabled
+Simulation Result for         Inclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      10657627
+Hits:                         5259461
+Misses:                       5398166
+Fills:                        5398166
+Evictions:                    5389033
+Invalidations:                5389974
+              L3 Stats
+Lookups:                      5398166
+Hits:                         3951778
+Misses:                       1446388
+Fills:                        1446388
+Evictions:                    1413620
+Invalidations:                1413620
+         Cache Hierarchy Stats
+Simulated addresses:          10657627
+Cache hits:                   9211239
+Back-invalidation lookups:    1413620
+Back-invalidations:           941
+--------------------------------------------------
+############################################
+Miss Categorisation(Part 2)
+                           LRU
+Cold Misses:                  119753
+Capacity Misses:              801630
+Conflict Misses:              525005
+Belady:                       
+Cold Misses:                  119753
+Capacity Misses:              284160
+Conflict Misses:              1042475
+############################################
+Simulation Result for         Exclusive Cache Hierarchy 
+              L2 Stats
+Lookups:                      10657627
+Hits:                         5260051
+Misses:                       5397576
+Fills:                        5397576
+Evictions:                    5389384
+Invalidations:                5389384
+              L3 Stats
+Lookups:                      5397576
+Hits:                         4508355
+Misses:                       889221
+Fills:                        5389384
+Evictions:                    853441
+Invalidations:                5361796
+         Cache Hierarchy Stats
+Simulated addresses:          10657627
+Cache hits:                   9768406
+--------------------------------------------------
+Simulation Result for         NINE Cache Hierarchy 
+              L2 Stats
+Lookups:                      10657627
+Hits:                         5260051
+Misses:                       5397576
+Fills:                        5397576
+Evictions:                    5389384
+Invalidations:                5389384
+              L3 Stats
+Lookups:                      5397576
+Hits:                         3951730
+Misses:                       1445846
+Fills:                        1445846
+Evictions:                    1413078
+Invalidations:                1413078
+         Cache Hierarchy Stats
+Simulated addresses:          10657627
+Cache hits:                   9211781
+--------------------------------------------------
