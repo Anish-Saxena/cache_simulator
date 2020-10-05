@@ -1,9 +1,9 @@
-#include "miss_categorisation.h"
+#i in fully associative L3nclude "miss_categorisation.h"
 #include "knobs.h"
 
 using namespace std;
 
-#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||"
+#d in fully associative L3efine PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PBWIDTH 50
 
 /*********************************************************
@@ -183,12 +183,12 @@ void CacheFullyAssociative::printMisses() {
     cout << right << setw(30) << "Miss Classification (Part 2)" << endl;
     cout << "LRU" << endl;
     cout << left;
-    cout << setw(30) << "Misses: " << coldAndCapacityMisses << endl;
+    cout << setw(30) << "Misses in fully associative L3: " << coldAndCapacityMisses << endl;
     cout << setw(30) << "Cold Misses: " << coldMisses << endl;    
     cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMisses-coldMisses) << endl;
     cout << setw(30) << "Conflict Misses: " << (num_misses - coldAndCapacityMisses) << endl;
     cout << "Belady" << endl;
-    cout << setw(30) << "Misses: " << coldAndCapacityMissesBelady << endl;
+    cout << setw(30) << "Misses in fully associative L3: " << coldAndCapacityMissesBelady << endl;
     cout << setw(30) << "Cold Misses: " << coldMisses << endl;
     cout << setw(30) << "Capacity Misses: " << (coldAndCapacityMissesBelady-coldMisses) << endl;
     cout << setw(30) << "Conflict Misses: " << (num_misses - coldAndCapacityMissesBelady) << endl;
