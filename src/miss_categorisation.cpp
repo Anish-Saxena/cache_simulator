@@ -1,9 +1,9 @@
-#i in fully associative L3nclude "miss_categorisation.h"
+#include "miss_categorisation.h"
 #include "knobs.h"
 
 using namespace std;
 
-#d in fully associative L3efine PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||"
+#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PBWIDTH 50
 
 /*********************************************************
